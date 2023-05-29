@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { TodolistService } from './todolist/todolist.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     MatCheckboxModule,
     RouterModule.forRoot([{ path: '', component: TodolistComponent }]),
   ],
+  providers: [TodolistService],
   declarations: [AppComponent, TopBarComponent, TodolistComponent],
   bootstrap: [AppComponent],
   exports: [RouterModule],

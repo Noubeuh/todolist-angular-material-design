@@ -1,10 +1,12 @@
 <h1>My TODO list</h1>
 
-<div *ngFor="let todo of todolist">
+<div *ngFor="let todo of sortedTodos$ | async">
   <mat-card>
     <mat-card-content>
-      <!-- <mat-checkbox [(ngModel)]="todo.state"></mat-checkbox> -->
-      {{ todo.id }} - {{ todo.title }}
+      <mat-checkbox [(ngModel)]="todo.isDone"></mat-checkbox>
+      <span [ngClass]="{ underline: todo.isDone }">
+        {{ todo.id }} - {{ todo.title }}
+      </span>
     </mat-card-content>
   </mat-card>
 </div>
