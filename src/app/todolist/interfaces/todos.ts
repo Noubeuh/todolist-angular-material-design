@@ -9,7 +9,7 @@ export const todos: Todo[] = [
   {
     id: 1,
     title: 'Read the second TODO',
-    isDone: true,
+    isDone: false,
   },
   {
     id: 2,

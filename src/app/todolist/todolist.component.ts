@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { Todo } from './interfaces/todos';
+import { Todo, todos } from './interfaces/todos';
 import { TodolistService } from './todolist.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class TodolistComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    //NB: better place for it maybe ?
     this.sortedTodos$ = this.todos$.pipe(
       filter((todos) =>
         todos.sort((a, b) => Number(a.isDone) - Number(b.isDone))
@@ -33,7 +34,13 @@ export class TodolistComponent implements OnInit, OnChanges {
     );
   }
 
+  onCheckboxChange(e) {
+    // EDIT : workaroud while onchanges not working
+    this.todolistService.todos$.next(todos);
+  }
+
   ngOnChanges(changes: SimpleChanges) {
+    // EDIT : not working on stackbiltz, need to check it
     // console.log('todos => ', changes);
     // this.todolistService.todos$.next(todos);
   }

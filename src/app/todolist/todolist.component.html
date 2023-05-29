@@ -3,7 +3,10 @@
 <div *ngFor="let todo of sortedTodos$ | async">
   <mat-card>
     <mat-card-content>
-      <mat-checkbox [(ngModel)]="todo.isDone"></mat-checkbox>
+      <mat-checkbox
+        [(ngModel)]="todo.isDone"
+        (change)="onCheckboxChange($event)"
+      ></mat-checkbox>
       <span [ngClass]="{ underline: todo.isDone }">
         {{ todo.id }} - {{ todo.title }}
       </span>
