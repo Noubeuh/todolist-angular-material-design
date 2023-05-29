@@ -4,12 +4,11 @@ import {
   OnChanges,
   ChangeDetectionStrategy,
   SimpleChanges,
-  Input,
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { Todo, todos } from './interfaces/todos';
+import { Todo } from './interfaces/todos';
 import { TodolistService } from './todolist.service';
 
 @Component({
@@ -35,8 +34,7 @@ export class TodolistComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('todos => ', changes);
-    this.toto = changes;
+    // console.log('todos => ', changes);
     // this.todolistService.todos$.next(todos);
   }
 }
