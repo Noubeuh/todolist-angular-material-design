@@ -1,29 +1,24 @@
 export interface Todo {
   id: number;
   title: string;
-  state: State;
+  isDone: boolean;
   description?: string;
-}
-
-export enum State {
-  TODO = 'To do',
-  DONE = 'Done',
 }
 
 export const todos: Todo[] = [
   {
     id: 1,
     title: 'Read the second TODO',
-    state: State.DONE,
+    isDone: false,
   },
   {
     id: 2,
     title: 'Read the third TODO',
-    state: State.TODO,
+    isDone: false,
   },
   {
     id: 3,
     title: 'Read again the first TODO',
-    state: State.TODO,
+    isDone: false,
   },
 ];
