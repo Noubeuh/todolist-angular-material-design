@@ -1,0 +1,10 @@
+<h1>My TODO list</h1>
+
+<div *ngFor="let todo of todolist">
+  <mat-card>
+    <mat-card-content>
+      <!-- <mat-checkbox [(ngModel)]="todo.state"></mat-checkbox> -->
+      {{ todo.id }} - {{ todo.title }}
+    </mat-card-content>
+  </mat-card>
+</div>

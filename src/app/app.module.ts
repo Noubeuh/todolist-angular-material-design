@@ -2,43 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import {
-  MatButtonModule,
-  MatInputModule,
-  MatFormFieldModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatToolbarModule,
-  MatCardModule,
-} from '@angular/material';
-import { RouterModule, Routes } from '@angular/router';
+import { MatCardModule, MatCheckboxModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { WithMaterialComponent } from './withmaterial/withmaterial.component';
-import { PlainComponent } from './plain/plain.component';
-
-const appRoutes: Routes = [
-  { path: 'plain', component: PlainComponent },
-  { path: 'material', component: WithMaterialComponent },
-];
+import { TodolistComponent } from './todolist/todolist.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatToolbarModule,
     BrowserAnimationsModule,
     MatCardModule,
-    RouterModule.forRoot(appRoutes, {
-      enableTracing: true,
-    }),
+    MatCheckboxModule,
+    RouterModule.forRoot([{ path: '', component: TodolistComponent }]),
   ],
-  declarations: [AppComponent, WithMaterialComponent, PlainComponent],
+  declarations: [AppComponent, TopBarComponent, TodolistComponent],
   bootstrap: [AppComponent],
   exports: [RouterModule],
 })
