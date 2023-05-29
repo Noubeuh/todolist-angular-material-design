@@ -1,0 +1,31 @@
+Sign Up!!!
+<br/><br/>
+
+<form>
+	<div>
+		First Name: <input type="text" name="firstName" />
+	</div>
+  <div>
+		Last Name: <input type="text" name="lastName" />
+	</div>
+  <div>
+		Gender: <input type="radio" name="gender" value="male" /> Male &nbsp;
+    <input type="radio" name="gender" value="female" /> Female
+	</div>
+  <div>
+		Email: <input type="email" name="email" />
+	</div>
+  <div>
+		Address: <textarea name="address" rows="3" cols="30"></textarea>
+	</div>
+  <div>
+		Area of Interest: <select name="areaInterest">
+      <option *ngFor="let interest of interests" [value]="interest.value">
+        {{interest.viewValue}}
+      </option>
+    </select>
+	</div>
+  <div>
+		<button type="submit">REGISTER</button>
+	</div>
+</form>
