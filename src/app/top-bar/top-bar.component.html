@@ -1,3 +1,15 @@
 <a [routerLink]="['/']">
   <h1>My TODO list app</h1>
 </a>
+
+<a [routerLink]="['/detail']" [queryParams]="{ id: '1' }">
+  <p>detail 1</p>
+</a>
+
+<a [routerLink]="['/detail']" [queryParams]="{ id: '2' }">
+  <p>detail 2</p>
+</a>
+
+<a [routerLink]="['/detail']" [queryParams]="{ id: '3' }">
+  <p>detail 3</p>
+</a>

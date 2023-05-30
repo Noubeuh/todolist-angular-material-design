@@ -3,12 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule, MatCheckboxModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
+
+import { RouterModule, Routes } from '@angular/router';
+
+import { TodolistService } from './todolist/todolist.service';
 
 import { AppComponent } from './app.component';
+import { DetailComponent } from './todolist/detail/detail.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { TodolistService } from './todolist/todolist.service';
+
+const routes: Routes = [
+  { path: 'home', component: TodolistComponent },
+  { path: 'detail', component: DetailComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [
@@ -17,10 +26,15 @@ import { TodolistService } from './todolist/todolist.service';
     BrowserAnimationsModule,
     MatCardModule,
     MatCheckboxModule,
-    RouterModule.forRoot([{ path: '', component: TodolistComponent }]),
+    RouterModule.forRoot(routes),
   ],
   providers: [TodolistService],
-  declarations: [AppComponent, TopBarComponent, TodolistComponent],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    TodolistComponent,
+    DetailComponent,
+  ],
   bootstrap: [AppComponent],
   exports: [RouterModule],
 })

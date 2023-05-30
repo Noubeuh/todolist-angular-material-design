@@ -1,15 +1,25 @@
 <h1>My TODO list</h1>
 
 <div *ngFor="let todo of sortedTodos$ | async">
-  <mat-card>
+  <mat-card (click)="seeTodoDetail(todo)">
     <mat-card-content>
-      <mat-checkbox
-        [(ngModel)]="todo.isDone"
-        (change)="onCheckboxChange($event)"
-      ></mat-checkbox>
-      <span [ngClass]="{ underline: todo.isDone }">
-        {{ todo.id }} - {{ todo.title }}
-      </span>
+      <div class="todo-container">
+        <div>
+          <mat-checkbox
+            [(ngModel)]="todo.isDone"
+            (change)="onCheckboxChange($event)"
+          ></mat-checkbox>
+          <span [ngClass]="{ underline: todo.isDone }">
+            {{ todo.id }} - {{ todo.title }}
+          </span>
+        </div>
+        <div class="icon-toggler" [ngClass]="{ rotate: !todo.collapsed }">
+          >
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
+  <section class="collapsible" [@collapse]="todo.collapsed">
+    <todolist-detail [todo]="todo"></todolist-detail>
+  </section>
 </div>
